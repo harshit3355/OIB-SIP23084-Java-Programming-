@@ -1,0 +1,40 @@
+import java.util.*;
+public class number_guessing_game {
+    public static void guess_number(){
+        Scanner sc=new Scanner(System.in);
+        int number=1+(int)(100*Math.random());
+        //Number of trials which is 5
+        int aur=5;
+        System.out.println("A number is choosen between 1 to 100");
+        System.out.println("Guess the number within 5 trials");
+
+        int i,guess;
+        for (i = 0; i < aur;i++) {
+            System.out.println("Guess the number");
+            //For input the number by user
+            guess=sc.nextInt();
+            //If number is guessed Correct Tell User about it
+            if(number==guess){
+                System.out.println("Congratulations! "+guess+" is the  guessed number.");
+                break;
+            }
+            else if(number>guess&&i!=aur-1){
+                //Give User the possibility of the number
+                System.out.println("The number is greater than "+guess);
+            }
+            else if(number<guess &&i!=aur-1){
+                //Give User the possibility of the number
+                System.out.println("The number is less than "+guess);
+
+            }
+        }
+        if(i==aur){
+            //Tell User the Attempts are over and tell the number guessed by the computer
+            System.out.println("Your trials are over.");
+            System.out.println("The number was "+number);
+        }
+    }
+    public static void main(String args[]) {
+        guess_number();
+    }
+}
